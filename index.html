@@ -1,17 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Shopping List Client</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-    </body>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <nav>
+    <div class="signed-in">
+  
+      <div class="buttons">
+      <button id="sign-out">Sign Out</button>
+      <button id="change-pw">Change Password</button>
+    </div>
+    </div>
+
+    <div class="container signed-out">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="sign-in-tab" data-toggle="tab" href="#sign-in-for-lists" role="tab" aria-controls="sign in"
+            aria-selected="true">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="sign-up-tab" data-toggle="tab" href="#sign-up-for-lists" role="tab" aria-controls="sign up"
+            aria-selected="false">Sign Up</a>
+        </li>
+      </ul>
+    </nav>
+      <div class="tab-content m-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="sign-in-for-lists" role="tabpanel" aria-labelledby="sign-in-for-lists-tab">
+          <div class="col-md-6">
+
+            <form id="sign-in" class="signed-out">
+              <div class="form-group">
+                <label  for="inputEmail2">Email address</label>
+                <input type="email" name="credentials[email]" class="form-control" id="inputEmail2"
+                  aria-describedby="email" placeholder="Enter email">
+              </div>
+
+              <div class="form-group">
+                <label for="inputPassword2">Password</label>
+                <input type="password" name="credentials[password]" class="form-control" id="inputPassword2"
+                  placeholder="Password">
+              </div>
+
+              <button type="submit" class="mb-3 btn btn-primary">Sign-In</button>
+            </form>
+          </div>
+        </div>
+        <div class="tab-pane fade col-md-6" id="sign-up-for-lists" role="tabpanel" aria-labelledby="sign-up-for-lists-tab">
+
+          <form id="sign-up">
+            <div class="form-group">
+              <label  for="inputEmail">Email address</label>
+              <input type="email" name="credentials[email]" class="form-control" id="inputEmail"
+                aria-describedby="email" placeholder="Enter email">
+            </div>
+
+            <div class="form-group">
+              <label for="inputPassword">Password</label>
+              <input type="password" name="credentials[password]" class="form-control" id="inputPassword"
+                placeholder="Password">
+            </div>
+
+            <div class="form-group">
+              <label for="inputPasswordConfirm">Password Confirmation</label>
+              <input type="password" name="credentials[password_confirmation]" class="form-control"
+                id="inputPasswordConfirm" placeholder="Password Confirmation">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign-Up</button>
+          </form>
+        </div>
+      </div>
+  <h1></h1>
+</body>
+
 </html>
