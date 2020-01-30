@@ -69,6 +69,8 @@ const showToast = function (msg) {
   $('.toast').toast('show')
   $('.toast-body').text(msg)
 }
+store.showToast = showToast
+
 module.exports = {
   signUpFail,
   signInSuccess,

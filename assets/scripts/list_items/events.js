@@ -11,9 +11,19 @@ const createNewLI = function (event) {
  .then(ui.getItemsSuccess)
  .catch(ui.createItemFail)
 }
+const onRemoveItem = function (event) {
+  event.preventDefault()
+  const itemId = $(event.target).data('id')
+  console.log(itemId)
+  api.deleteItem(itemId)
+    .then(api.getItems)
+    .then(ui.getItemsSuccess)
+    .catch(ui.failure)
+}
 
 const addHandlers = function () {
  $('#create-new').on('submit', createNewLI)
+  $('.items-list').on('click', '.remove', onRemoveItem)
 }
 
 

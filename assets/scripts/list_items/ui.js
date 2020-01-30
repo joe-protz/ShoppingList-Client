@@ -1,5 +1,5 @@
 'use strict'
-const authUi = require('../auth/ui')
+const store = require('../store')
 const showItemsTemplate = require('../templates/showListItems.handlebars')
 
 const createItemSuccess = function (data) {
@@ -7,7 +7,7 @@ const createItemSuccess = function (data) {
 }
 const createItemFail = function (_error) {
   const msg = 'Failed to create new item, please try again'
-  authUi.showToast(msg)
+  store.showToast(msg)
 }
 
 const getItemsSuccess = function (data) {
@@ -19,7 +19,7 @@ const getItemsSuccess = function (data) {
 }
 const getItemsFail = function (_error) {
   const msg = 'Failed to get your items, log out to try again'
-  authUi.showToast(msg)
+  store.showToast(msg)
 }
 
 module.exports = {

@@ -24,12 +24,16 @@ const getItems = function () {
 
 const deleteItem = (itemId) => {
   return $.ajax({
-    url: config.apiUrl + '/books/' + bookId,
-    method: 'DELETE'
+    url: config.apiUrl + '/items/' + itemId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
 module.exports = {
   createItem,
-  getItems
+  getItems,
+  deleteItem
 }
