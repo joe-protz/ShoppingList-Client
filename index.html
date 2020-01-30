@@ -39,6 +39,28 @@
         </div>
         <button type="submit" class="btn btn-primary m-2">Create</button>
       </form>
+        <div class="container pw-view">
+          <div class="row">
+            <h3>Change Password</h3>
+          </div>
+          <div class="row">
+            <form id="change-password-form" class='col-md-6'>
+              <div class="form-group">
+                <label for="inputPassword3">Old Password</label>
+                <input type="password" name="passwords[old]" class="form-control" id="inputPassword3"
+                  placeholder="Old Password">
+              </div>
+
+              <div class="form-group">
+                <label for="inputPassword4">New Password </label>
+                <input type="password" name="passwords[new]" class="form-control" id="inputPassword4"
+                  placeholder="New Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Change</button>
+              <button id="cancel" type="button" class="btn btn-secondary">Cancel</button>
+            </form>
+          </div>
+        </div>
     <ul class="container list-group items-list list-group-flush ">
       
       
@@ -80,7 +102,7 @@
         </form>
       </div>
     </div>
-    <div class="tab-pane fade col-md-6" id="sign-up-for-lists" role="tabpanel" aria-labelledby="sign-up-for-lists-tab">
+    <div class="signed-out tab-pane fade col-md-6" id="sign-up-for-lists" role="tabpanel" aria-labelledby="sign-up-for-lists-tab">
 
       <form id="sign-up">
         <div class="form-group">
@@ -106,28 +128,7 @@
     </div>
   </div>
   </div>
-  <div class="container pw-view">
-    <div class="row">
-      <h3>Change Password</h3>
-    </div>
-    <div class="row">
-      <form id="change-password-form" class='col-md-6'>
-        <div class="form-group">
-          <label for="inputPassword3">Old Password</label>
-          <input type="password" name="passwords[old]" class="form-control" id="inputPassword3"
-            placeholder="Old Password">
-        </div>
 
-        <div class="form-group">
-          <label for="inputPassword4">New Password </label>
-          <input type="password" name="passwords[new]" class="form-control" id="inputPassword4"
-            placeholder="New Password">
-        </div>
-        <button type="submit" class="btn btn-primary">Change</button>
-        <button id="cancel" type="button" class="btn btn-secondary">Cancel</button>
-      </form>
-    </div>
-  </div>
 
 
   <!-- <div id= 'myModal'class="modal" tabindex="-1" role="dialog">
