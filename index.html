@@ -19,7 +19,7 @@
   
       <div class="buttons">
       <button id="sign-out">Sign Out</button>
-      <button id="change-pw">Change Password</button>
+      <button id="open-pw-view">Change Password</button>
     </div>
     </div>
 
@@ -81,6 +81,30 @@
           </form>
         </div>
       </div>
+    </div>
+      <div class="container pw-view">
+        <div class="row">
+            <h3>Change Password</h3>
+        </div>
+        <div class="row">
+            <form id="change-password-form" class = 'col-md-6'>
+              <div class="form-group">
+                <label for="inputPassword3">Old Password</label>
+                <input type="password" name="passwords[old]" class="form-control" id="inputPassword3"
+                  placeholder="Old Password">
+              </div>
+    
+              <div class="form-group">
+                <label for="inputPassword4">New Password </label>
+                <input type="password" name="passwords[new]" class="form-control" id="inputPassword4"
+                  placeholder="New Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Change</button>
+              <button id="cancel" type="button" class="btn btn-secondary">Cancel</button>
+            </form>
+        </div>
+      </div>
+
   <h1></h1>
 </body>
 

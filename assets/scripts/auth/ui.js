@@ -18,6 +18,20 @@ const signOutSuccess = function () {
 const signOutFail = function (error) {
   console.log(error)
 }
+const changePasswordView = function (show) {
+  if (show) {
+    $('.pw-view').show()
+  } else {
+    $('.pw-view').hide()
+  }
+}
+const changePasswordSuccess = function (response) {
+  $('.pw-view').hide()
+}
+
+const changePasswordFailure = function (error) {
+  console.error(error)
+}
 const changeLoggedIn = function (state) {
   if (state === 'signed in') {
     $('.signed-out').hide()
@@ -32,5 +46,8 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   signInFail,
-  signOutFail
+  signOutFail,
+  changePasswordSuccess,
+  changePasswordFailure,
+  changePasswordView
 }

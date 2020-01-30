@@ -39,22 +39,19 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  $('.loading').show()
-  $('#messages').show().text('Attempting to change password ...')
   const data = getFormFields(event.target)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
-    .then(response => {
-      $('.loading').hide()
-      $('#messages').text('')
-    })
 }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('click', onSignOut)
+  $('#change-password-form').on('submit', onChangePassword)
+  $('#open-pw-view').on('click', () => ui.changePasswordView(true))
+  $('#cancel').on('click', () => ui.changePasswordView(false))
 }
 
 module.exports = {
