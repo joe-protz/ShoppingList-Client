@@ -26,12 +26,13 @@ const removeItemFail = function (_error) {
   store.showToast(msg)
 }
 
-const updateItemSuccess = function (response) {
-  console.log(response)
-}
+// const updateItemSuccess = function (response) {
 
-const updateItemFail = function (error) {
-  console.error(error)
+// }
+
+const updateItemFail = function (_error) {
+  const msg = 'Failed to update your item, please try again and ensure there is a name and the quantity is a number.'
+  store.showToast(msg)
 }
 module.exports = {
   createItemSuccess,
@@ -39,6 +40,5 @@ module.exports = {
   getItemsSuccess,
   getItemsFail,
   removeItemFail,
-  updateItemSuccess,
   updateItemFail
 }
