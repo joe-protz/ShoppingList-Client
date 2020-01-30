@@ -23,6 +23,7 @@ const signUpFail = function (_error) {
 const signOutSuccess = function () {
   store.user = null
   changeLoggedIn()
+  $('form').trigger('reset')
 }
 
 const signOutFail = function (_error) {
