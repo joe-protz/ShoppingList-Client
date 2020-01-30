@@ -47,6 +47,11 @@ const changePasswordView = function (show) {
 const changePasswordSuccess = function (_response) {
   $('.pw-view').hide()
   $('form').trigger('reset')
+  $('.toast-header').text('Success!')
+  const msg = 'Successfully changed password.'
+  showToast(msg)
+  setTimeout(() => $('.toast-header').text('Error!'), 3000)
+  
 }
 
 const changePasswordFailure = function (_error) {
