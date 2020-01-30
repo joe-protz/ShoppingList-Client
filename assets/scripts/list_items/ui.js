@@ -2,14 +2,12 @@
 const store = require('../store')
 const showItemsTemplate = require('../templates/showListItems.handlebars')
 
-const createItemSuccess = function (data) {
-
-}
 const createItemFail = function (_error) {
   const msg = 'Failed to create new item, please try again'
   store.showToast(msg)
 }
-
+// uses handlebars template to show all items of user. Used by most functions to keep current view up to date
+// TODO: ORDER THE LIST
 const getItemsSuccess = function (data) {
   const showItemsHtml = showItemsTemplate({
     items: data.items
@@ -31,7 +29,6 @@ const updateItemFail = function (_error) {
   store.showToast(msg)
 }
 module.exports = {
-  createItemSuccess,
   createItemFail,
   getItemsSuccess,
   getItemsFail,

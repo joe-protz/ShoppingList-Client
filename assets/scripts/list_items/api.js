@@ -1,6 +1,8 @@
 'ust strict'
 const config = require('../config')
 const store = require('../store')
+// creates an item with getformfields 
+// TODO: get rid of ugly form and reuse list update logic to make creating more intuitive
 const createItem = function (data) {
   return $.ajax({
     url: config.apiUrl + '/items',
@@ -11,7 +13,7 @@ const createItem = function (data) {
     data: data
   })
 }
-
+// get all for authorized user
 const getItems = function () {
   return $.ajax({
     url: config.apiUrl + '/items',
@@ -21,7 +23,7 @@ const getItems = function () {
     }
   })
 }
-
+// delete based on ID of button clicked for authorized user
 const deleteItem = (itemId) => {
   return $.ajax({
     url: config.apiUrl + '/items/' + itemId,
@@ -31,7 +33,7 @@ const deleteItem = (itemId) => {
     }
   })
 }
-
+// updates the item based on which LI ID was clicked, whether the quantity or name was focused on and uses the stored value of the other attribute to keep it consistent. Defaults undefined quantities to ''
 const updateItem = function (text, typeOfUpdate, currentName, currentQuantity, id) {
   if (typeOfUpdate === 'quantity') {
     if (text === 'undefined') {
