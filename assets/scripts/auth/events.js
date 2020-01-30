@@ -25,7 +25,7 @@ const onSignIn = function (event) {
 const onSignOut = function (event) {
   api.signOut()
     .then(ui.signOutSuccess)
-    .catch(ui.signOutFailure)
+    .catch(ui.signOutFail)
 }
 // Change password with current and new, notify of result
 const onChangePassword = function (event) {
