@@ -27,7 +27,10 @@ const onUpdateItemTrigger = function (event) {
   api.updateItem(text.trim(), typeOfUpdate.trim(), tempName.trim(), tempQuantity.trim(), itemId)
     .then(api.getItems)
     .then(ui.getItemsSuccess)
-    .catch(ui.updateItemFail)
+    .catch(() => {
+      ui.updateItemFail()
+      $(event.target).text(tempQuantity)
+    })
 }
 let tempName = ''
 let tempQuantity = 0
