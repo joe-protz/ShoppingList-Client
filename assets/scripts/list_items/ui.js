@@ -3,7 +3,7 @@ const store = require('../store')
 const showItemsTemplate = require('../templates/showListItems.handlebars')
 
 const createItemSuccess = function (data) {
- 
+
 }
 const createItemFail = function (_error) {
   const msg = 'Failed to create new item, please try again'
@@ -22,8 +22,8 @@ const getItemsFail = function (_error) {
 }
 
 const removeItemFail = function (_error) {
-   const msg = 'Failed to delete your item, please try again'
-   store.showToast(msg)
+  const msg = 'Failed to delete your item, please try again'
+  store.showToast(msg)
 }
 
 const updateItemSuccess = function (response) {
@@ -31,8 +31,7 @@ const updateItemSuccess = function (response) {
 }
 
 const updateItemFail = function (error) {
-  console.error(error);
-  
+  console.error(error)
 }
 module.exports = {
   createItemSuccess,

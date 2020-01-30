@@ -58,7 +58,6 @@ const changeLoggedIn = function (state) {
   if (state === 'signed in') {
     $('.signed-out').hide()
     $('.signed-in').show()
-
   } else {
     $('.pw-view').hide()
     $('.signed-out').show()
