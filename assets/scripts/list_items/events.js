@@ -24,7 +24,7 @@ const onUpdateItemTrigger = function (event) {
   const itemId = $(event.target).data('id')
   const text = $(event.target).text()
   const typeOfUpdate = ($(event.target).attr('class'))
-  api.updateItem(text, typeOfUpdate, tempName, tempQuantity, itemId)
+  api.updateItem(text.trim(), typeOfUpdate.trim(), tempName.trim(), tempQuantity.trim(), itemId)
     .then(api.getItems)
     .then(ui.getItemsSuccess)
     .catch(ui.updateItemFail)
