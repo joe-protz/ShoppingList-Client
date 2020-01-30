@@ -10,18 +10,18 @@ const signInSuccess = function (response) {
   changeLoggedIn('signed in')
   $('form').trigger('reset')
   listItemApi.getItems()
-  .then(listItemUi.getItemsSuccess)
-  .catch(listItemUi.getItemsFail)
+    .then(listItemUi.getItemsSuccess)
+    .catch(listItemUi.getItemsFail)
 }
 
 const signInFail = function (_error) {
-  const msg = 'Failed to sign in, please try again'  
+  const msg = 'Failed to sign in, please try again'
   showToast(msg)
   $('.passwords').val('')
 }
 
 const signUpFail = function (_error) {
-  const msg = 'Failed to sign up, please try again'  
+  const msg = 'Failed to sign up, please try again'
   showToast(msg)
   $('.passwords').val('')
 }
@@ -32,7 +32,7 @@ const signOutSuccess = function () {
 }
 
 const signOutFail = function (_error) {
-  const msg = 'Failed to sign out, please try again'  
+  const msg = 'Failed to sign out, please try again'
   showToast(msg)
 }
 const changePasswordView = function (show) {
@@ -50,7 +50,7 @@ const changePasswordSuccess = function (_response) {
 }
 
 const changePasswordFailure = function (_error) {
-  const msg = 'Failed to change password, please try again'  
+  const msg = 'Failed to change password, please try again'
   showToast(msg)
   $('form').trigger('reset')
 }
@@ -58,7 +58,7 @@ const changeLoggedIn = function (state) {
   if (state === 'signed in') {
     $('.signed-out').hide()
     $('.signed-in').show()
-    
+
   } else {
     $('.pw-view').hide()
     $('.signed-out').show()

@@ -1,19 +1,24 @@
 {{#each items as |item|}}
-<li data-id="{{item.id}}" class="row list-group-item d-flex justify-content-between">
-  <div>
+<li  data-id="{{item.id}}" class="row list-group-item d-flex justify-content-between">
+
+  <div class = "update">
+  <span data-id="{{item.id}}" class ="name" contenteditable>
     {{item.name}}
-  
+  </span>
  
-  <span>
+  <span >
     
     {{#if item.quantity}}
-    , Quantity:
+    , Quantity: <span data-id="{{item.id}}" class ="quantity" contenteditable="">
     {{item.quantity}}
+      </span>
+    {{else}}
+    Quantity: <span data-id="{{item.id}}"  class ="quantity"contenteditable >undefined </span>
     {{/if}}
   </span>
   </div>
   <div>
-  <button class="btn btn-primary update btn-sm" data-id="{{item.id}}"> Update </button>
+  
   <button class="btn remove btn-danger btn-sm" data-id="{{item.id}}"> Remove </button>
   </div>
 </li>

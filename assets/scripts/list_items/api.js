@@ -32,8 +32,46 @@ const deleteItem = (itemId) => {
   })
 }
 
+const updateItem = function (text, typeOfUpdate,currentName,currentQuantity, id) {
+  if (typeOfUpdate === 'quantity') {
+
+    return $.ajax({
+      url: config.apiUrl + '/items/' + id,
+      method: 'PATCH',
+      headers: {
+        Authorization: 'Token token=' + store.user.token
+      },
+      data: {
+        "item": {
+          "name": currentName,
+          "quantity": text
+        }
+      }
+    })
+    
+
+  }
+
+  else {
+    return $.ajax({
+      url: config.apiUrl + '/items/' + id,
+      method: 'PATCH',
+      headers: {
+        Authorization: 'Token token=' + store.user.token
+      },
+      data: {
+        "item": {
+          "name": text,
+          "quantity": currentQuantity
+        }
+      }
+    })
+  }
+}
+
 module.exports = {
   createItem,
   getItems,
-  deleteItem
+  deleteItem,
+  updateItem
 }

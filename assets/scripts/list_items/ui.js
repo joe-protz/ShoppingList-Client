@@ -11,7 +11,6 @@ const createItemFail = function (_error) {
 }
 
 const getItemsSuccess = function (data) {
-  console.log(data)
   const showItemsHtml = showItemsTemplate({
     items: data.items
   })
@@ -22,9 +21,25 @@ const getItemsFail = function (_error) {
   store.showToast(msg)
 }
 
+const removeItemFail = function (_error) {
+   const msg = 'Failed to delete your item, please try again'
+   store.showToast(msg)
+}
+
+const updateItemSuccess = function (response) {
+  console.log(response)
+}
+
+const updateItemFail = function (error) {
+  console.error(error);
+  
+}
 module.exports = {
   createItemSuccess,
   createItemFail,
   getItemsSuccess,
-  getItemsFail
+  getItemsFail,
+  removeItemFail,
+  updateItemSuccess,
+  updateItemFail
 }
