@@ -25,10 +25,22 @@
         <button class='btn btn-primary btn-sm' id="open-pw-view">Change Password</button>
     </nav>
      
-        
-    <ul class="list-group items-list list-group-flush">
-      <li class="list-group-item"></li>
-      <li id='new-editable' contenteditable class="list-group-item">+</li>
+       
+      <form id="create-new" class="form-inline">
+        <div class="form-group m-2">
+          <!-- <label class = "m-1"for="name">Password</label> -->
+          <input name="item[name]" type="text" class="form-control" id="name" aria-describedby="name"
+            placeholder="Add new item">
+        </div>
+        <div class="form-group m-2">
+          <!-- <label class = "m-1"for="quantity">Password</label> -->
+          <input name="item[quantity]" type="text" class="form-control" id="quantity" aria-describedby="quantity"
+            placeholder="#?">
+        </div>
+        <button type="submit" class="btn btn-primary m-2">Create</button>
+      </form>
+    <ul class="container list-group items-list list-group-flush ">
+      
       
     </ul>
   </div>

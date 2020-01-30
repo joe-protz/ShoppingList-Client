@@ -1,0 +1,21 @@
+{{#each items as |item|}}
+<li data-id="{{item.id}}" class="row list-group-item d-flex justify-content-between">
+  <div>
+    {{item.name}}
+  
+ 
+  <span>
+    
+    {{#if item.quantity}}
+    , Quantity:
+    {{item.quantity}}
+    {{/if}}
+  </span>
+  </div>
+  <div>
+  <button class="btn btn-primary update btn-sm" data-id="{{item.id}}"> Update </button>
+  <button class="btn remove btn-danger btn-sm" data-id="{{item.id}}"> Remove </button>
+  </div>
+</li>
+
+{{/each}}

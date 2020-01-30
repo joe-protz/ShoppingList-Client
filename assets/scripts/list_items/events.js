@@ -1,5 +1,21 @@
 'use strict'
+const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
+const ui = require('./ui')
+
+const createNewLI = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+ api.createItem(data)
+ .then(api.getItems)
+ .then(ui.getItemsSuccess)
+ .catch(ui.createItemFail)
+}
+
+const addHandlers = function () {
+ $('#create-new').on('submit', createNewLI)
+}
+
 
 // const addItem = function (event) {
 //    $(event.target).focusout(() => {
@@ -15,17 +31,6 @@ const api = require('./api')
 //   })
  
 // }
-
-
-
-
-const addHandlers = function () {
- // $('#new-editable').on('click', addItem)
-}
-
-
-
-
 
 
 // $('#new-editable').

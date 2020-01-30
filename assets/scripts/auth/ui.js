@@ -1,5 +1,7 @@
 'use strict'
 const store = require('../store')
+const listItemUi = require('../list_items/ui')
+const listItemApi = require('../list_items/api')
 
 let pwViewOpen = false
 
@@ -7,6 +9,9 @@ const signInSuccess = function (response) {
   store.user = response.user
   changeLoggedIn('signed in')
   $('form').trigger('reset')
+  listItemApi.getItems()
+  .then(listItemUi.getItemsSuccess)
+  .catch(listItemUi.getItemsFail)
 }
 
 const signInFail = function (_error) {
@@ -72,5 +77,6 @@ module.exports = {
   signOutFail,
   changePasswordSuccess,
   changePasswordFailure,
-  changePasswordView
+  changePasswordView,
+  showToast
 }
