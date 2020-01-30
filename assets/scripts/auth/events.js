@@ -11,13 +11,8 @@ const onSignUp = function (event) {
       return api.signIn(data)
     })
     .then(ui.signInSuccess)
-    .then(response => {
-      $('form').trigger('reset')
-    })
-    .catch(ui.signUpFailure)
-    .then(response => {
-      $('form').trigger('reset')
-    })
+    .catch(ui.signUpFail)
+    
 }
 
 const onSignIn = function (event) {
@@ -25,12 +20,9 @@ const onSignIn = function (event) {
   const data = getFormFields(event.target)
   api.signIn(data)
     .then(ui.signInSuccess)
-    .catch(ui.signInFailure)
-    .then(response => {
-      $('form').trigger('reset')})
+    .catch(ui.signInFail)
 }
 const onSignOut = function (event) {
-
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)

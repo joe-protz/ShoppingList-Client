@@ -14,6 +14,9 @@
 </head>
 
 <body>
+
+  
+   
   <div class="signed-in">
     <nav class="navbar navbar-dark bg-dark justify-content-between">
       <a class="navbar-brand">Navbar</a>
@@ -21,12 +24,13 @@
         <button class='btn btn-primary btn-sm' id="sign-out">Sign Out</button>
         <button class='btn btn-primary btn-sm' id="open-pw-view">Change Password</button>
     </nav>
-
+     
+        
     <ul class="list-group items-list list-group-flush">
       <li id='editable'class="list-group-item">+</li>
       
     </ul>
-
+    
   </div>
   
   <nav class="signed-out navbar navbar-dark bg-dark justify-content-between pb-0">
@@ -55,8 +59,8 @@
           </div>
 
           <div class="form-group">
-            <label for="inputPassword2">Password</label>
-            <input type="password" name="credentials[password]" class="form-control" id="inputPassword2"
+            <label class='password-input'  for="inputPassword2">Password</label>
+            <input  type="password" name="credentials[password]" class="passwords form-control" id="inputPassword2"
               placeholder="Password">
           </div>
 
@@ -75,13 +79,13 @@
 
         <div class="form-group">
           <label for="inputPassword">Password</label>
-          <input type="password" name="credentials[password]" class="form-control" id="inputPassword"
+          <input type="password" name="credentials[password]" class="passwords form-control" id="inputPassword"
             placeholder="Password">
         </div>
 
         <div class="form-group">
           <label for="inputPasswordConfirm">Password Confirmation</label>
-          <input type="password" name="credentials[password_confirmation]" class="form-control"
+          <input type="password" name="credentials[password_confirmation]" class="form-control passwords"
             id="inputPasswordConfirm" placeholder="Password Confirmation">
         </div>
 
@@ -135,7 +139,18 @@
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
     Launch demo modal
   </button> -->
- 
+  <div class="toast" style="position: fixed; top: 0; right: 0; " data-delay='3000' role="alert"
+    aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="mr-auto">Error!</strong>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+      Please note seizure risk with crazy mode. Dismiss this notification to allow activation.
+    </div>
+  </div>
 </body>
 
 </html>

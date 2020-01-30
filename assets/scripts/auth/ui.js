@@ -6,19 +6,28 @@ let pwViewOpen = false
 const signInSuccess = function (response) {
   store.user = response.user
   changeLoggedIn('signed in')
+  $('form').trigger('reset')
 }
 
-const signInFail = function (error) {
-  console.log(error)
+const signInFail = function (_error) {
+  const msg = 'Failed to sign in, please try again'  
+  showToast(msg)
+  $('.passwords').val('')
 }
 
+const signUpFail = function (_error) {
+  const msg = 'Failed to sign up, please try again'  
+  showToast(msg)
+  $('.passwords').val('')
+}
 const signOutSuccess = function () {
   store.user = null
   changeLoggedIn()
 }
 
-const signOutFail = function (error) {
-  console.log(error)
+const signOutFail = function (_error) {
+  const msg = 'Failed to sign out, please try again'  
+  showToast(msg)
 }
 const changePasswordView = function (show) {
   if (show && !pwViewOpen) {
@@ -29,12 +38,15 @@ const changePasswordView = function (show) {
     $('.pw-view').hide()
   }
 }
-const changePasswordSuccess = function (response) {
+const changePasswordSuccess = function (_response) {
   $('.pw-view').hide()
+  $('form').trigger('reset')
 }
 
-const changePasswordFailure = function (error) {
-  console.error(error)
+const changePasswordFailure = function (_error) {
+  const msg = 'Failed to change password, please try again'  
+  showToast(msg)
+  $('form').trigger('reset')
 }
 const changeLoggedIn = function (state) {
   if (state === 'signed in') {
@@ -45,8 +57,12 @@ const changeLoggedIn = function (state) {
     $('.signed-in').hide()
   }
 }
-
+const showToast = function (msg) {
+  $('.toast').toast('show')
+  $('.toast-body').text(msg)
+}
 module.exports = {
+  signUpFail,
   signInSuccess,
   signOutSuccess,
   signInFail,
