@@ -34,6 +34,9 @@ const deleteItem = (itemId) => {
 
 const updateItem = function (text, typeOfUpdate, currentName, currentQuantity, id) {
   if (typeOfUpdate === 'quantity') {
+    if (text === 'undefined') {
+      text = ''
+    }
     return $.ajax({
       url: config.apiUrl + '/items/' + id,
       method: 'PATCH',
