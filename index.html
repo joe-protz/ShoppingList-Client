@@ -14,98 +14,131 @@
 </head>
 
 <body>
-  <nav>
-    <div class="signed-in">
-  
+  <div class="signed-in">
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+      <a class="navbar-brand">Navbar</a>
       <div class="buttons">
-      <button id="sign-out">Sign Out</button>
-      <button id="open-pw-view">Change Password</button>
-    </div>
-    </div>
-
-    <div class="container signed-out">
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="sign-in-tab" data-toggle="tab" href="#sign-in-for-lists" role="tab" aria-controls="sign in"
-            aria-selected="true">Sign In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="sign-up-tab" data-toggle="tab" href="#sign-up-for-lists" role="tab" aria-controls="sign up"
-            aria-selected="false">Sign Up</a>
-        </li>
-      </ul>
+        <button class='btn btn-primary btn-sm' id="sign-out">Sign Out</button>
+        <button class='btn btn-primary btn-sm' id="open-pw-view">Change Password</button>
     </nav>
-      <div class="tab-content m-3" id="myTabContent">
-        <div class="tab-pane fade show active" id="sign-in-for-lists" role="tabpanel" aria-labelledby="sign-in-for-lists-tab">
-          <div class="col-md-6">
 
-            <form id="sign-in" class="signed-out">
-              <div class="form-group">
-                <label  for="inputEmail2">Email address</label>
-                <input type="email" name="credentials[email]" class="form-control" id="inputEmail2"
-                  aria-describedby="email" placeholder="Enter email">
-              </div>
+    <ul class="list-group items-list list-group-flush">
+      <li class="list-group-item"ContentEditable=true></li>
+      <li class="list-group-item"ContentEditable=true></li>
+      <li class="list-group-item"ContentEditable=true></li>
+      <li class="list-group-item"ContentEditable=true></li>
+      <li class="list-group-item"ContentEditable=true></li>
+    </ul>
 
-              <div class="form-group">
-                <label for="inputPassword2">Password</label>
-                <input type="password" name="credentials[password]" class="form-control" id="inputPassword2"
-                  placeholder="Password">
-              </div>
+  </div>
+  
+  <nav class="signed-out navbar navbar-dark bg-dark justify-content-between pb-0">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="sign-in-tab" data-toggle="tab" href="#sign-in-for-lists" role="tab"
+          aria-controls="sign in" aria-selected="true">Sign In</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="sign-up-tab" data-toggle="tab" href="#sign-up-for-lists" role="tab"
+          aria-controls="sign up" aria-selected="false">Sign Up</a>
+      </li>
+    </ul>
+    <div class="container signed-out">
+  </nav>
+  <div class="tab-content m-3" id="myTabContent">
+    <div class="tab-pane fade show active" id="sign-in-for-lists" role="tabpanel"
+      aria-labelledby="sign-in-for-lists-tab">
+      <div class="col-md-6">
 
-              <button type="submit" class="mb-3 btn btn-primary">Sign-In</button>
-            </form>
+        <form id="sign-in" class="signed-out">
+          <div class="form-group">
+            <label for="inputEmail2">Email address</label>
+            <input type="email" name="credentials[email]" class="form-control" id="inputEmail2" aria-describedby="email"
+              placeholder="Enter email">
+          </div>
+
+          <div class="form-group">
+            <label for="inputPassword2">Password</label>
+            <input type="password" name="credentials[password]" class="form-control" id="inputPassword2"
+              placeholder="Password">
+          </div>
+
+          <button type="submit" class="mb-3 btn btn-primary">Sign-In</button>
+        </form>
+      </div>
+    </div>
+    <div class="tab-pane fade col-md-6" id="sign-up-for-lists" role="tabpanel" aria-labelledby="sign-up-for-lists-tab">
+
+      <form id="sign-up">
+        <div class="form-group">
+          <label for="inputEmail">Email address</label>
+          <input type="email" name="credentials[email]" class="form-control" id="inputEmail" aria-describedby="email"
+            placeholder="Enter email">
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" name="credentials[password]" class="form-control" id="inputPassword"
+            placeholder="Password">
+        </div>
+
+        <div class="form-group">
+          <label for="inputPasswordConfirm">Password Confirmation</label>
+          <input type="password" name="credentials[password_confirmation]" class="form-control"
+            id="inputPasswordConfirm" placeholder="Password Confirmation">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign-Up</button>
+      </form>
+    </div>
+  </div>
+  </div>
+  <div class="container pw-view">
+    <div class="row">
+      <h3>Change Password</h3>
+    </div>
+    <div class="row">
+      <form id="change-password-form" class='col-md-6'>
+        <div class="form-group">
+          <label for="inputPassword3">Old Password</label>
+          <input type="password" name="passwords[old]" class="form-control" id="inputPassword3"
+            placeholder="Old Password">
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword4">New Password </label>
+          <input type="password" name="passwords[new]" class="form-control" id="inputPassword4"
+            placeholder="New Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Change</button>
+        <button id="cancel" type="button" class="btn btn-secondary">Cancel</button>
+      </form>
+    </div>
+  </div>
+  <!-- <div id= 'myModal'class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
-        <div class="tab-pane fade col-md-6" id="sign-up-for-lists" role="tabpanel" aria-labelledby="sign-up-for-lists-tab">
-
-          <form id="sign-up">
-            <div class="form-group">
-              <label  for="inputEmail">Email address</label>
-              <input type="email" name="credentials[email]" class="form-control" id="inputEmail"
-                aria-describedby="email" placeholder="Enter email">
-            </div>
-
-            <div class="form-group">
-              <label for="inputPassword">Password</label>
-              <input type="password" name="credentials[password]" class="form-control" id="inputPassword"
-                placeholder="Password">
-            </div>
-
-            <div class="form-group">
-              <label for="inputPasswordConfirm">Password Confirmation</label>
-              <input type="password" name="credentials[password_confirmation]" class="form-control"
-                id="inputPasswordConfirm" placeholder="Password Confirmation">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Sign-Up</button>
-          </form>
-        </div>
       </div>
-    </div>
-      <div class="container pw-view">
-        <div class="row">
-            <h3>Change Password</h3>
-        </div>
-        <div class="row">
-            <form id="change-password-form" class = 'col-md-6'>
-              <div class="form-group">
-                <label for="inputPassword3">Old Password</label>
-                <input type="password" name="passwords[old]" class="form-control" id="inputPassword3"
-                  placeholder="Old Password">
-              </div>
-    
-              <div class="form-group">
-                <label for="inputPassword4">New Password </label>
-                <input type="password" name="passwords[new]" class="form-control" id="inputPassword4"
-                  placeholder="New Password">
-              </div>
-              <button type="submit" class="btn btn-primary">Change</button>
-              <button id="cancel" type="button" class="btn btn-secondary">Cancel</button>
-            </form>
-        </div>
-      </div>
-
   <h1></h1>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Launch demo modal
+  </button> -->
+ 
 </body>
 
 </html>

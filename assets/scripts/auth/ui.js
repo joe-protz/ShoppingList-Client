@@ -1,9 +1,11 @@
 'use strict'
 const store = require('../store')
+
+let pwViewOpen = false
+
 const signInSuccess = function (response) {
   store.user = response.user
   changeLoggedIn('signed in')
-
 }
 
 const signInFail = function (error) {
@@ -19,9 +21,11 @@ const signOutFail = function (error) {
   console.log(error)
 }
 const changePasswordView = function (show) {
-  if (show) {
+  if (show && !pwViewOpen) {
     $('.pw-view').show()
+    pwViewOpen = true
   } else {
+    pwViewOpen = false
     $('.pw-view').hide()
   }
 }

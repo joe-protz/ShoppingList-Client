@@ -26,9 +26,8 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
-     .then(response => {
-      $('form').trigger('reset')
-    })
+    .then(response => {
+      $('form').trigger('reset')})
 }
 const onSignOut = function (event) {
 
@@ -36,7 +35,6 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
-
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
