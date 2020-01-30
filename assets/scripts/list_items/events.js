@@ -43,7 +43,7 @@ const addHandlers = function () {
   $('.items-list').on('focusout', '.update', onUpdateItemTrigger)
   $('.items-list').on('focusin', '.update', storeValue)
 
-  $(document).keypress(function (e) {
+  $('.items-list').keypress(function (e) {
     if (e.which === 13) {
       e.preventDefault()
       $(event.target).focusout()
