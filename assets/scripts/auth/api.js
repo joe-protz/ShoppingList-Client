@@ -1,5 +1,5 @@
 'use strict'
-
+//  All current functions do auth events with either passed in data from getformfields or with the store.user.token
 const config = require('../config')
 const store = require('../store')
 

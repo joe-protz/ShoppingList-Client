@@ -27,7 +27,7 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
-// Change password with current and new, 
+// Change password with current and new, notify of result
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -35,7 +35,7 @@ const onChangePassword = function (event) {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
-
+//  used by app.js to add handlers for auth events
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
