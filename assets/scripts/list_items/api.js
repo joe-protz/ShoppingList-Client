@@ -1,7 +1,7 @@
 'ust strict'
 const config = require('../config')
 const store = require('../store')
-// creates an item with getformfields 
+// creates an item with getformfields
 // TODO: get rid of ugly form and reuse list update logic to make creating more intuitive
 const createItem = function (data) {
   return $.ajax({

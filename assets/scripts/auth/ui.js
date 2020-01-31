@@ -4,7 +4,7 @@ const listItemUi = require('../list_items/ui')
 const listItemApi = require('../list_items/api')
 
 let pwViewOpen = false
-// store the users token for use then get all list items 
+// store the users token for use then get all list items
 const signInSuccess = function (response) {
   store.user = response.user
   changeLoggedIn('signed in')
@@ -13,13 +13,13 @@ const signInSuccess = function (response) {
     .then(listItemUi.getItemsSuccess)
     .catch(listItemUi.getItemsFail)
 }
-// alert of fail 
+// alert of fail
 const signInFail = function (_error) {
   const msg = 'Failed to sign in, please try again'
   showToast(msg)
   $('.passwords').val('')
 }
-// alert of fail 
+// alert of fail
 const signUpFail = function (_error) {
   const msg = 'Failed to sign up, please try again'
   showToast(msg)
@@ -31,7 +31,7 @@ const signOutSuccess = function () {
   changeLoggedIn()
   $('form').trigger('reset')
 }
-// alert of fail 
+// alert of fail
 const signOutFail = function (_error) {
   const msg = 'Failed to sign out, please try again'
   showToast(msg)
@@ -56,7 +56,6 @@ const changePasswordSuccess = function (_response) {
   const msg = 'Successfully changed password.'
   showToast(msg)
   setTimeout(() => $('.toast-header').text('Error!'), 3000)
-
 }
 // show error msg
 const changePasswordFailure = function (_error) {
