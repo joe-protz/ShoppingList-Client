@@ -3,7 +3,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 // creates  new item for current authorized user and updates their view with current list
-// TODO: create a function that orders the list items by ID so that they do not randomly swap.
+
 const createNewLI = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -32,11 +32,13 @@ const onUpdateItem = function (event) {
     .catch(() => {
       ui.updateItemFail()
       if (typeOfUpdate === 'quantity') {
-         $(event.target).text(tempQuantity)
+        $(event.target).text(tempQuantity)
       } else {
         $(event.target).text(tempName)
       }
     })
+
+    .catch(ui.getItemsFail)
 }
 // stores value of the list item focused on last. on focus out update item is called
 let tempName = ''
@@ -45,16 +47,11 @@ const storeValue = function (event) {
   const parent = $(event.target).closest('.list-group-item')
   tempQuantity = parent.find('.quantity').text()
   tempName = parent.find('.name').text()
-  
 }
 const removeEditable = function (event) {
-$(event.target).removeClass('edit')
+  $(event.target).removeClass('edit')
 
- 
-  $('.edit').removeAttr("contenteditable")
-
-  //debugger
-  //if event is quantity, remove class quantity, else remove name. not both
+  $('.edit').removeAttr('contenteditable')
 }
 const addHandlers = function () {
   $('.items-list').on('submit', '#create-new', createNewLI)

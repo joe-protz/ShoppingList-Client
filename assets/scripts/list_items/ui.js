@@ -7,7 +7,6 @@ const createItemFail = function (_error) {
   store.showToast(msg)
 }
 // uses handlebars template to show all items of user. Used by most functions to keep current view up to date
-// TODO: ORDER THE LIST
 const getItemsSuccess = function (data) {
   const orderedItems = sortItems(data)
   const showItemsHtml = showItemsTemplate({
@@ -41,10 +40,18 @@ const updateItemFail = function (_error) {
   const msg = 'Failed to update your item, please try again and ensure there is a name and the quantity is a number.'
   store.showToast(msg)
 }
+
+const updateItemSuccess = function (_error) {
+  const msg =
+    'Successfully updated item'
+  // store.showToast(msg)
+}
+
 module.exports = {
   createItemFail,
   getItemsSuccess,
   getItemsFail,
   removeItemFail,
-  updateItemFail
+  updateItemFail,
+  updateItemSuccess
 }
