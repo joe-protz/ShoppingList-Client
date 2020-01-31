@@ -49,6 +49,9 @@ const storeValue = function (event) {
   tempName = parent.find('.name').text()
 }
 const removeEditable = function (event) {
+  $(".quantity").keypress(function(e) {
+    if (isNaN(String.fromCharCode(e.which))) e.preventDefault();
+})
   $(event.target).removeClass('edit')
   $('.edit').removeAttr('contenteditable')
 }
