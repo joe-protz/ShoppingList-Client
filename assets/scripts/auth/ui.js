@@ -69,10 +69,12 @@ const changeLoggedIn = function (state) {
   if (state === 'signed in') {
     $('.signed-out').hide()
     $('.signed-in').show()
+    $('body').css('background-color', ' rgb(133, 101, 33)')
   } else {
     $('.pw-view').hide()
     $('.signed-out').show()
     $('.signed-in').hide()
+    $('body').css('background-color', ' #FFFFFF')
   }
 }
 // shows an error toast with a custom msg

@@ -44,7 +44,7 @@ const storeValue = function (event) {
 }
 
 const addHandlers = function () {
-  $('#create-new').on('submit', createNewLI)
+  $('.items-list').on('submit', '#create-new', createNewLI)
   $('.items-list').on('click', '.remove', onRemoveItem)
   $('.items-list').on('focusout', '.update', onUpdateItem)
   $('.items-list').on('focusin', '.update', storeValue)

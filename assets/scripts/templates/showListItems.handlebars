@@ -1,5 +1,20 @@
+
+<li class="row d-flex justify-content-between list-group-item-flush  list-group-item list-group-item-warning">
+  <form id="create-new" class="form-inline">
+    <div class="form-group m-2">
+      <input name="item[name]" type="text" class="form-control" id="name" aria-describedby="name"
+        placeholder="Add new item">
+    </div>
+    <div class="form-group m-2">
+      <input name="item[quantity]" type="number" class="form-control" id="quantity" aria-describedby="quantity"
+        placeholder="#?">
+    </div>
+    <button type="submit" class="btn btn-primary m-2">Create</button>
+  </form>
+</li>
 {{#each items as |item|}}
-<li  data-id="{{item.id}}" class="row list-group-item d-flex justify-content-between">
+
+<li  data-id="{{item.id}}" class="row list-group-item d-flex justify-content-between list-group-item-flush  list-group-item-warning">
 
   <div class = "update">
   <span data-id="{{item.id}}" class ="name" contenteditable>
