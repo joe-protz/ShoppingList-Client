@@ -50,10 +50,11 @@ const storeValue = function (event) {
 }
 const removeEditable = function (event) {
   $(event.target).removeClass('edit')
-
   $('.edit').removeAttr('contenteditable')
 }
+
 const addHandlers = function () {
+
   $('.items-list').on('submit', '#create-new', createNewLI)
   $('.items-list').on('click', '.remove', onRemoveItem)
   $('.items-list').on('focusout', '.update', onUpdateItem)
