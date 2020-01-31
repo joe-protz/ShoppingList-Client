@@ -42,18 +42,26 @@ const onUpdateItem = function (event) {
 let tempName = ''
 let tempQuantity = 0
 const storeValue = function (event) {
-  const container = $(event.target).closest('ul')
- container.removeAttr('contenteditable')
   const parent = $(event.target).closest('.list-group-item')
   tempQuantity = parent.find('.quantity').text()
   tempName = parent.find('.name').text()
+  
 }
+const removeEditable = function (event) {
+$(event.target).removeClass('edit')
 
+ 
+  $('.edit').removeAttr("contenteditable")
+
+  //debugger
+  //if event is quantity, remove class quantity, else remove name. not both
+}
 const addHandlers = function () {
   $('.items-list').on('submit', '#create-new', createNewLI)
   $('.items-list').on('click', '.remove', onRemoveItem)
   $('.items-list').on('focusout', '.update', onUpdateItem)
-  $('.items-list').on('focusin', '.update', storeValue)
+  $('.items-list').on('focus', '.update', storeValue)
+  $('.items-list').on('focus', '.update', removeEditable)
   // maps return keypress while inside of items list to cause focus out instead of return
   $('.items-list').keypress(function (e) {
     if (e.which === 13) {
