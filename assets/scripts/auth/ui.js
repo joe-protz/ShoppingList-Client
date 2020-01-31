@@ -52,7 +52,7 @@ const changePasswordView = function (show) {
 }
 // close pw view and show success message , but set header of toast back to error after 3 sec (amt of time toast stays up)
 const changePasswordSuccess = function (_response) {
-  $('.pw-view').hide()
+  changePasswordView()
   $('form').trigger('reset')
   $('.toast-header').text('Success!')
   const msg = 'Successfully changed password.'
