@@ -13,7 +13,8 @@ const onSignUp = function (event) {
     .then(ui.signInSuccess)
     .catch(ui.signUpFail)
 }
-// sign in and change view on success or show notification on error TODO: Figure out how to tell user WHY their errors happen
+// sign in and change view on success or show notification on error
+// TODO: Figure out how to tell user WHY their errors happen
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
