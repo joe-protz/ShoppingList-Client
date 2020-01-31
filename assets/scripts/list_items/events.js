@@ -49,6 +49,21 @@ const storeValue = function (event) {
   tempName = parent.find('.name').text()
 }
 const removeEditable = function (event) {
+  var cell = event.target
+  // select all text in contenteditable
+  var range, selection
+  if (document.body.createTextRange) {
+    range = document.body.createTextRange()
+    range.moveToElementText(cell)
+    range.select()
+  } else if (window.getSelection) {
+    selection = window.getSelection()
+    range = document.createRange()
+    range.selectNodeContents(cell)
+    selection.removeAllRanges()
+    selection.addRange(range)
+  }
+  // once a editable span is selected, stop all quantity class divs from allowing non-numeric keypresses
   $(".quantity").keypress(function(e) {
     if (isNaN(String.fromCharCode(e.which))) e.preventDefault();
 })
