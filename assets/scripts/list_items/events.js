@@ -31,13 +31,19 @@ const onUpdateItem = function (event) {
     .then(ui.getItemsSuccess)
     .catch(() => {
       ui.updateItemFail()
-      $(event.target).text(tempQuantity)
+      if (typeOfUpdate === 'quantity') {
+         $(event.target).text(tempQuantity)
+      } else {
+        $(event.target).text(tempName)
+      }
     })
 }
 // stores value of the list item focused on last. on focus out update item is called
 let tempName = ''
 let tempQuantity = 0
 const storeValue = function (event) {
+  const container = $(event.target).closest('ul')
+ container.removeAttr('contenteditable')
   const parent = $(event.target).closest('.list-group-item')
   tempQuantity = parent.find('.quantity').text()
   tempName = parent.find('.name').text()

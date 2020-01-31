@@ -9,11 +9,24 @@ const createItemFail = function (_error) {
 // uses handlebars template to show all items of user. Used by most functions to keep current view up to date
 // TODO: ORDER THE LIST
 const getItemsSuccess = function (data) {
+  const orderedItems = sortItems(data)
   const showItemsHtml = showItemsTemplate({
-    items: data.items
+    items: orderedItems
   })
   $('.items-list').html(showItemsHtml)
 }
+
+const sortItems = function (data) {
+  const orderedItems = data.items.sort((book1, book2) => {
+    if (book1.id < book2.id) {
+      return -1
+    } else {
+      return 1
+    }
+  })
+  return orderedItems
+}
+
 const getItemsFail = function (_error) {
   const msg = 'Failed to get your items, log out to try again'
   store.showToast(msg)
