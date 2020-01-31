@@ -41,11 +41,13 @@ const changePasswordView = function (show) {
   if (show && !pwViewOpen) {
     $('.pw-view').show()
     $('.items-list').hide()
+    $('body').css('background-color', ' #FFFFFF')
     pwViewOpen = true
   } else {
     pwViewOpen = false
     $('.pw-view').hide()
     $('.items-list').show()
+    $('body').css('background-color', ' rgb(133, 101, 33)')
   }
 }
 // close pw view and show success message , but set header of toast back to error after 3 sec (amt of time toast stays up)
@@ -70,7 +72,7 @@ const changeLoggedIn = function (state) {
     $('.signed-in').show()
     $('body').css('background-color', ' rgb(133, 101, 33)')
   } else {
-    $('.pw-view').hide()
+    changePasswordView()
     $('.signed-out').show()
     $('.signed-in').hide()
     $('body').css('background-color', ' #FFFFFF')
