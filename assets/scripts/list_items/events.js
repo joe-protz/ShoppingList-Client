@@ -49,9 +49,9 @@ const storeValue = function (event) {
   tempName = parent.find('.name').text()
 }
 const removeEditable = function (event) {
-  var cell = event.target
+  const cell = event.target
   // select all text in contenteditable
-  var range, selection
+  let range, selection
   if (document.body.createTextRange) {
     range = document.body.createTextRange()
     range.moveToElementText(cell)
@@ -64,15 +64,14 @@ const removeEditable = function (event) {
     selection.addRange(range)
   }
   // once a editable span is selected, stop all quantity class divs from allowing non-numeric keypresses
-  $(".quantity").keypress(function(e) {
-    if (isNaN(String.fromCharCode(e.which))) e.preventDefault();
-})
+  $('.quantity').keypress(function (e) {
+    if (isNaN(String.fromCharCode(e.which))) e.preventDefault()
+  })
   $(event.target).removeClass('edit')
   $('.edit').removeAttr('contenteditable')
 }
 
 const addHandlers = function () {
-
   $('.items-list').on('submit', '#create-new', createNewLI)
   $('.items-list').on('click', '.remove', onRemoveItem)
   $('.items-list').on('focusout', '.update', onUpdateItem)
