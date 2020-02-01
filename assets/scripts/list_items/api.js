@@ -2,10 +2,10 @@
 const config = require('../config')
 const store = require('../store')
 // creates an item with getformfields
-// TODO: get rid of ugly form and reuse list update logic to make creating more intuitive
+
 const createItem = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/items',
+    url: config.apiUrl + '/items/' + store.listId,
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -24,9 +24,9 @@ const getItems = function (listId) {
   })
 }
 // delete based on ID of button clicked for authorized user
-const deleteItem = (itemId) => {
+const deleteItem = (itemId, listId) => {
   return $.ajax({
-    url: config.apiUrl + '/items/' + itemId,
+    url: config.apiUrl + '/items/' + listId + '/' + itemId,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -35,12 +35,13 @@ const deleteItem = (itemId) => {
 }
 // updates the item based on which LI ID was clicked, whether the quantity or name was focused on and uses the stored value of the other attribute to keep it consistent. Defaults undefined quantities to ''
 const updateItem = function (text, typeOfUpdate, currentName, currentQuantity, id) {
+  console.log(config.apiUrl + `/items/${store.listId.toString()}/${id.toString()}`)
   if (typeOfUpdate === 'quantity') {
     if (text === 'undefined') {
       text = ''
     }
     return $.ajax({
-      url: config.apiUrl + '/items/' + id,
+      url: config.apiUrl + `/items/${store.listId.toString()}/${id.toString()}`,
       method: 'PATCH',
       headers: {
         Authorization: 'Token token=' + store.user.token
@@ -54,7 +55,7 @@ const updateItem = function (text, typeOfUpdate, currentName, currentQuantity, i
     })
   } else {
     return $.ajax({
-      url: config.apiUrl + '/items/' + id,
+      url: config.apiUrl + `/items/${store.listId.toString()}/${id.toString()}`,
       method: 'PATCH',
       headers: {
         Authorization: 'Token token=' + store.user.token

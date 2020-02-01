@@ -1,5 +1,5 @@
 'use strict'
-const store = require('../store')
+// const store = require('../store')
 const showListsTemplate = require('../templates/showListsTemplate.handlebars')
 
 const getListsSuccess = function (response) {
@@ -11,7 +11,6 @@ const getListsSuccess = function (response) {
 
 const getListsFail = function (error) {
   console.error(error)
-
 }
 module.exports = {
   getListsSuccess,
