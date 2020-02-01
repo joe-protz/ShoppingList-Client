@@ -19,24 +19,24 @@
 <li  data-id="{{item.id}}" class="row list-group-item d-flex justify-content-between list-group-item-flush  list-group-item-warning">
 
   <div class = "update">
-  <span data-id="{{item.id}}" class ="name edit" contenteditable>
+  <span data-listID="{{item.list.id}}" data-id="{{item.id}}" class ="name edit" contenteditable>
     {{item.name}}
   </span>
  
   <span >
     
     {{#if item.quantity}}
-    , Quantity: <span data-id="{{item.id}}" class ="quantity edit" contenteditable>
+    , Quantity: <span data-listID="{{item.list.id}}"data-id="{{item.id}}" class ="quantity edit" contenteditable>
     {{item.quantity}}
       </span>
     {{else}}
-    Quantity: <span data-id="{{item.id}}"  class ="quantity edit"contenteditable >undefined </span>
+    Quantity: <span data-listID="{{item.list.id}}" data-id="{{item.id}}"  class ="quantity edit"contenteditable >undefined </span>
     {{/if}}
   </span>
   </div>
   <div>
   
-  <button class="btn remove btn-danger btn-sm" data-id="{{item.id}}"> Remove </button>
+  <button class="btn remove btn-danger btn-sm" data-listID="{{item.list.id}}" data-id="{{item.id}}"> Remove </button>
   </div>
 </li>
 
