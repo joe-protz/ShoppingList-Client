@@ -14,9 +14,9 @@ const createItem = function (data) {
   })
 }
 // get all for authorized user
-const getItems = function () {
+const getItems = function (listId) {
   return $.ajax({
-    url: config.apiUrl + '/items',
+    url: config.apiUrl + '/items/' + listId,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token

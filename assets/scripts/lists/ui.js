@@ -1,9 +1,12 @@
 'use strict'
 const store = require('../store')
-const getListsSuccess = function (response) {
+const showListsTemplate = require('../templates/showListsTemplate.handlebars')
 
-  console.log(store.user)
-  console.log(response)
+const getListsSuccess = function (response) {
+  const showListsHtml = showListsTemplate({
+    lists: response.lists
+  })
+  $('.dropdown-menu').html(showListsHtml)
 }
 
 const getListsFail = function (error) {
