@@ -16,8 +16,8 @@ const getItemsSuccess = function (data) {
 }
 
 const sortItems = function (data) {
-  const orderedItems = data.items.sort((book1, book2) => {
-    if (book1.id < book2.id) {
+  const orderedItems = data.items.sort((items1, items2) => {
+    if (items1.id < items2.id) {
       return -1
     } else {
       return 1
