@@ -1,7 +1,9 @@
 'use strict'
 const store = require('../store')
-const listItemUi = require('../list_items/ui')
-const listItemApi = require('../list_items/api')
+// const listItemUi = require('../list_items/ui')
+// const listItemApi = require('../list_items/api')
+const listApi = require('../lists/api')
+const listUi = require('../lists/ui')
 
 let pwViewOpen = false
 // store the users token for use then get all list items
@@ -9,9 +11,9 @@ const signInSuccess = function (response) {
   store.user = response.user
   changeLoggedIn('signed in')
   $('form').trigger('reset')
-  listItemApi.getItems()
-    .then(listItemUi.getItemsSuccess)
-    .catch(listItemUi.getItemsFail)
+  listApi.getLists()
+    .then(listUi.getListsSuccess)
+    .catch(listUi.getListsFail)
 }
 // alert of fail
 const signInFail = function (_error) {
