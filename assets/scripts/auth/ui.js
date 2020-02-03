@@ -7,11 +7,17 @@ let pwViewOpen = false
 
 // store the users token for use then get all list items
 const signInSuccess = function (response) {
+  const signInResponse = response
   store.user = response.user
   changeLoggedIn('signed in')
   $('form').trigger('reset')
   listApi.getLists()
     .then(listUi.getListsSuccess)
+    .then(() => {
+      if (signInResponse.user.lists[0] !== undefined) {
+        listUi.showFirstList()
+      }
+    })
     .catch(listUi.getListsFail)
 }
 // alert of fail

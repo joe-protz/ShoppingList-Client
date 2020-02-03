@@ -25,8 +25,19 @@ const showNewList = function () {
   $(maxObj).find('div').click()
 }
 
+const showFirstList = function () {
+  const listNames = $('.list-name').toArray()
+  let minObj = $(listNames[0])
+  listNames.forEach((list) => {
+    if ($(list).data('id') < $(minObj).data('id')) minObj = list
+  })
+
+  $(minObj).find('div').click()
+}
+
 module.exports = {
   getListsSuccess,
   getListsFail,
-  showNewList
+  showNewList,
+  showFirstList
 }
