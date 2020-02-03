@@ -7,10 +7,11 @@ const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signUp(data)
-    .then(response => {
-      return api.signIn(data)
+    .then(() => {
+      api.signIn(data)
+        .then(ui.signInSuccess)
     })
-    .then(ui.signInSuccess)
+    
     .catch(ui.signUpFail)
 }
 // sign in and change view on success or show notification on error
