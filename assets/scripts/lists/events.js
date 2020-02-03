@@ -22,9 +22,9 @@ const onGetItems = function (event) {
 const changeDropDownName = function (event) {
   let listName
   if ($(event.target).hasClass('dropdown-item')) {
-    listName = $(event.target).find('div').text() // needed for clicking edge of item where the text would include the button
+    listName = $(event.target).find('div').text().slice(3) // needed for clicking edge of item where the text would include the button
   } else {
-    listName = $(event.target).text()
+    listName = $(event.target).text().slice(3)
   }
   $('.navbar-brand').text(listName)
 }
