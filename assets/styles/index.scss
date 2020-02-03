@@ -11,3 +11,9 @@ span {
   .edit {
     font-weight: bold;
   }
+
+  .scrollable-menu {
+    height: auto;
+    max-height: 85vh;
+    overflow-x: hidden;
+}
