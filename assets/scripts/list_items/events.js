@@ -3,8 +3,8 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
-// creates  new item for current authorized user and updates their view with current list
 
+// creates  new item for current authorized user and updates their view with current list
 const createNewLI = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -57,6 +57,7 @@ const storeValue = function (event) {
   tempQuantity = parent.find('.quantity').text()
   tempName = parent.find('.name').text()
 }
+
 const removeEditable = function (event) {
   const cell = event.target
   // select all text in contenteditable

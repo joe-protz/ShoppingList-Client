@@ -11,7 +11,6 @@ const onSignUp = function (event) {
       api.signIn(data)
         .then(ui.signInSuccess)
     })
-
     .catch(ui.signUpFail)
 }
 // sign in and change view on success or show notification on error

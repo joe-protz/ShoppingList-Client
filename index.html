@@ -5,7 +5,6 @@
   <title>Shopping List Client</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Do not add `link` tags-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
@@ -131,8 +130,8 @@
   </div>
 <!-- end signed out view TODO: rethink signed out class -->
 
-<!-- begin notifcation /toast -->
-  <div class="toast" style="position: fixed; top: 0; right: 0; " data-delay='3000' role="alert"
+<!-- begin notifcation /toast if data-delay is changed, must change changePasswordSuccess function -->
+  <div class="toast" style="position: fixed; top: 0; right: 0; " data-delay='3750' role="alert"
     aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       <strong class="mr-auto">Error!</strong>
@@ -141,7 +140,6 @@
       </button>
     </div>
     <div class="toast-body">
-      
     </div>
   </div>
 <!-- end toast -->

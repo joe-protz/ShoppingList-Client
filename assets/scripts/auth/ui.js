@@ -1,11 +1,10 @@
 'use strict'
 const store = require('../store')
-// const listItemUi = require('../list_items/ui')
-// const listItemApi = require('../list_items/api')
 const listApi = require('../lists/api')
 const listUi = require('../lists/ui')
 
 let pwViewOpen = false
+
 // store the users token for use then get all list items
 const signInSuccess = function (response) {
   store.user = response.user
@@ -60,7 +59,7 @@ const changePasswordSuccess = function (_response) {
   $('.toast-header').text('Success!')
   const msg = 'Successfully changed password.'
   showToast(msg)
-  setTimeout(() => $('.toast-header').text('Error!'), 3000)
+  setTimeout(() => $('.toast-header').text('Error!'), 3750) // must edit to match toast autohide delay
 }
 // show error msg
 const changePasswordFailure = function (_error) {

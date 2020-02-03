@@ -15,6 +15,7 @@ const getItemsSuccess = function (data) {
   $('.items-list').html(showItemsHtml)
 }
 
+// custom sort to stop items from arranging themselves unpredicatably
 const sortItems = function (data) {
   const orderedItems = data.items.sort((items1, items2) => {
     if (items1.id < items2.id) {
