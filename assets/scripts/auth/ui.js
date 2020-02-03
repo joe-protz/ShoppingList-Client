@@ -31,6 +31,7 @@ const signUpFail = function (_error) {
 const signOutSuccess = function () {
   store.user = null
   changeLoggedIn()
+  $('.items-list').html('')
   $('form').trigger('reset')
 }
 // alert of fail
@@ -43,13 +44,13 @@ const changePasswordView = function (show) {
   if (show && !pwViewOpen) {
     $('.pw-view').show()
     $('.items-list').hide()
-    $('body').css('background-color', ' #FFFFFF')
+    $('body').css('background-image', ' none')
     pwViewOpen = true
   } else {
     pwViewOpen = false
     $('.pw-view').hide()
     $('.items-list').show()
-    $('body').css('background-color', ' rgb(133, 101, 33)')
+    $('body').css('background-image', ' url("public/cork.png")')
   }
 }
 // close pw view and show success message , but set header of toast back to error after 3 sec (amt of time toast stays up)
@@ -72,12 +73,12 @@ const changeLoggedIn = function (state) {
   if (state === 'signed in') {
     $('.signed-out').hide()
     $('.signed-in').show()
-    $('body').css('background-color', ' rgb(133, 101, 33)')
+    $('body').css('background-image', ' url("public/cork.png")')
   } else {
     changePasswordView()
     $('.signed-out').show()
     $('.signed-in').hide()
-    $('body').css('background-color', ' #FFFFFF')
+    $('body').css('background-image', 'none')
   }
 }
 // shows an error toast with a custom msg
