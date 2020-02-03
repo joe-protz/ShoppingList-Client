@@ -20,7 +20,7 @@ const showNewList = function () {
     if ($(list).data('id') > $(maxObj).data('id')) maxObj = list
   })
 
-  $(maxObj).click()
+  $(maxObj).find('div').click()
 }
 
 module.exports = {

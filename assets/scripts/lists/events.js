@@ -18,7 +18,12 @@ const onGetItems = function (event) {
 }
 
 const changeDropDownName = function (event) {
-  const listName = $(event.target).find('div').text()
+  let listName = undefined
+  if ($(event.target).hasClass('dropdown-item')) {
+    listName = $(event.target).find('div').text()
+  } else {
+     listName = $(event.target).text()
+  }
   $('.navbar-brand').text(listName)
 }
 const onCreateList = function (event) {
