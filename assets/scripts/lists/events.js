@@ -49,12 +49,13 @@ const onDeleteList = function (event) {
       .then(response => {
         api.getLists()
           .then(ui.getListsSuccess)
+          if (listId === store.listId) {
+            $('.items-list').html('')
+            $('.navbar-brand').text('My List App')
+          }
       })
   })
-  if (listId === store.listId) {
-    $('.items-list').html('')
-    $('.navbar-brand').text('My List App')
-  }
+ 
 }
 
 const addHandlers = function () {
