@@ -35,7 +35,6 @@ const deleteItem = (itemId, listId) => {
 }
 // updates the item based on which LI ID was clicked, whether the quantity or name was focused on and uses the stored value of the other attribute to keep it consistent. Defaults undefined quantities to ''
 const updateItem = function (text, typeOfUpdate, currentName, currentQuantity, id) {
-  console.log(config.apiUrl + `/items/${store.listId.toString()}/${id.toString()}`)
   if (typeOfUpdate === 'quantity') {
     if (text === 'undefined') {
       text = ''

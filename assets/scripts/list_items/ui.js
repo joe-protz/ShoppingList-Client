@@ -41,17 +41,10 @@ const updateItemFail = function (_error) {
   store.showToast(msg)
 }
 
-const updateItemSuccess = function (_error) {
-  const msg =
-    'Successfully updated item'
-  // store.showToast(msg)
-}
-
 module.exports = {
   createItemFail,
   getItemsSuccess,
   getItemsFail,
   removeItemFail,
-  updateItemFail,
-  updateItemSuccess
+  updateItemFail
 }

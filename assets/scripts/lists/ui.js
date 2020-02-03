@@ -14,13 +14,15 @@ const getListsFail = function (error) {
 }
 
 const showNewList = function () {
- const listNames= $('.list-name').toArray()
- let maxObj= $(listNames[0])
- listNames.forEach((list) => {
-  if( $(list).data('id') > $(maxObj).data('id')) maxObj = list
-})
-$(maxObj).click()
+  const listNames = $('.list-name').toArray()
+  let maxObj = $(listNames[0])
+  listNames.forEach((list) => {
+    if ($(list).data('id') > $(maxObj).data('id')) maxObj = list
+  })
+
+  $(maxObj).click()
 }
+
 module.exports = {
   getListsSuccess,
   getListsFail,

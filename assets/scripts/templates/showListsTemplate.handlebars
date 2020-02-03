@@ -9,5 +9,5 @@
   </form>
   <div class="dropdown-divider"></div>
 {{#each lists as |list|}}
- <a class="dropdown-item list-name d-flex justify-content-between" data-id={{list.id}} href="#"><div>#{{inc @index}} {{list.name}}</div> <button data-id={{list.id}} class= "btn btn-danger btn-sm">delete</button></a>
+ <a class="dropdown-item list-name d-flex justify-content-between" data-id={{list.id}} href="#"><div>#{{inc @index}} {{list.name}}</div> <button  data-toggle="modal" data-target="#list-delete-modal"data-id={{list.id}} class= "btn btn-danger btn-sm delete-list">delete</button></a>
 {{/each}}

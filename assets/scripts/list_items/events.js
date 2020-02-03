@@ -34,10 +34,10 @@ const onUpdateItem = function (event) {
   const text = $(event.target).text()
   const typeOfUpdate = ($(event.target).attr('class'))
   api.updateItem(text.trim(), typeOfUpdate.trim(), tempName.trim(), tempQuantity.trim(), itemId)
-  .then(() => {
-    api.getItems(store.listId)
-      .then(ui.getItemsSuccess)
-  })
+    .then(() => {
+      api.getItems(store.listId)
+        .then(ui.getItemsSuccess)
+    })
     .catch(() => {
       ui.updateItemFail()
       if (typeOfUpdate === 'quantity') {
