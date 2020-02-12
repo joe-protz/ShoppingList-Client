@@ -6,6 +6,7 @@
 - [Deployed Heroku App](https://shopping-list-10994.herokuapp.com/)
 - [API-Repo](https://github.com/joe-protz/ShoppingList-API)
 - [GitHub](https://joe-protz.github.io/)
+- [Portfolio](https://joe-protz.github.io/#)
 - [LinkedIn](https://www.linkedin.com/in/joe-protz/)
 
 ## Planning Story
