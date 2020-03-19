@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Shopping List Client</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <!-- begin signed in section -->
+  <div class="signed-in">
+    <nav class="navbar sticky-top navbar-dark bg-dark justify-content-between">
+      <ul class="nav nav-pills list-list">
+
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle btn-primary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My Lists</a>
+          <div class="dropdown-menu scrollable-menu ">
+
+          </div>
+        </li>
+        </ul>
+        <a class="navbar-brand">My List App</a>
+      <div class="buttons">
+        <button class='btn btn-primary btn-sm' id="sign-out">Sign Out</button>
+        <button class='btn btn-primary btn-sm' id="open-pw-view">Change Password</button>
+    </nav>
+      <!-- end signed in section  -->
+
+      <!-- begin password change view -->
+        <div class="container pw-view">
+          <div class="row">
+            <h3>Change Password</h3>
+          </div>
+          <div class="row">
+            <form id="change-password-form" class='col-md-6'>
+              <div class="form-group">
+                <label for="inputPassword3">Old Password</label>
+                <input type="password" name="passwords[old]" class="form-control" id="inputPassword3"
+                  placeholder="Old Password">
+              </div>
+
+              <div class="form-group">
+                <label for="inputPassword4">New Password </label>
+                <input type="password" name="passwords[new]" class="form-control" id="inputPassword4"
+                  placeholder="New Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Change</button>
+              <button id="cancel" type="button" class="btn btn-secondary">Cancel</button>
+            </form>
+          </div>
+        </div>
+        <!-- end password change view -->
+
+
+    <ul class="container mb-5 list-group items-list">
+
+
+    </ul>
+  </div>
+  <!-- end signed in view -->
+
+  <!-- begin signed out view -->
+  <nav class="signed-out navbar navbar-dark bg-dark justify-content-between pb-0">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+       <li class="nav-item">
+        <a class="nav-link active" id="about-tab" data-toggle="tab" href="#about" role="tab"
+          aria-controls="about" aria-selected="true">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="sign-in-tab" data-toggle="tab" href="#sign-in-for-lists" role="tab"
+          aria-controls="sign in" aria-selected="false">Sign In</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" id="sign-up-tab" data-toggle="tab" href="#sign-up-for-lists" role="tab"
+          aria-controls="sign up" aria-selected="false">Sign Up</a>
+      </li>
+    </ul>
+    <div class="container signed-out">
+  </nav>
+  <div class="tab-content m-3" id="myTabContent">
+        <div class="tab-pane fade show active"id='about' role="tabpanel">
+          <div class='signed-out'>Welcome to my List App. With this app, you are able to create lists of items and quantities with ease. You may create a new list by clicking in the top left corner, and a new item for the list by using the form at the top middle of the page. To edit an item, you simply click on either the name or quantity, and when you press the enter button it will save. Please log in or sign up to begin, or click on the button below to use my test account.
+
+          <p><button class='btn btn-primary mt-2' id='dummy' >Click here to use test account</button>
+          </p>
+          </div>
+        </div>
+
+
+    <div class="tab-pane fade show" id="sign-in-for-lists" role="tabpanel"
+      aria-labelledby="sign-in-for-lists-tab">
+      <div class="col-md-6">
+
+        <form id="sign-in" class="signed-out">
+          <div class="form-group">
+            <label for="inputEmail2">Email address</label>
+            <input type="email" name="credentials[email]" class="form-control" id="inputEmail2" aria-describedby="email"
+              placeholder="Enter email">
+          </div>
+
+          <div class="form-group">
+            <label class='password-input'  for="inputPassword2">Password</label>
+            <input  type="password" name="credentials[password]" class="passwords form-control" id="inputPassword2"
+              placeholder="Password">
+          </div>
+
+          <button type="submit" class="mb-3 btn btn-primary">Sign-In</button>
+        </form>
+      </div>
+    </div>
+    <div class="signed-out tab-pane fade col-md-6" id="sign-up-for-lists" role="tabpanel" aria-labelledby="sign-up-for-lists-tab">
+
+      <form id="sign-up">
+        <div class="form-group">
+          <label for="inputEmail">Email address</label>
+          <input type="email" name="credentials[email]" class="form-control" id="inputEmail" aria-describedby="email"
+            placeholder="Enter email">
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" name="credentials[password]" class="passwords form-control" id="inputPassword"
+            placeholder="Password">
+        </div>
+
+        <div class="form-group">
+          <label for="inputPasswordConfirm">Password Confirmation</label>
+          <input type="password" name="credentials[password_confirmation]" class="form-control passwords"
+            id="inputPasswordConfirm" placeholder="Password Confirmation">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Sign-Up</button>
+      </form>
+    </div>
+  </div>
+  </div>
+<!-- end signed out view TODO: rethink signed out class -->
+
+<!-- begin notifcation /toast if data-delay is changed, must change changePasswordSuccess function -->
+  <div class="toast" style="position: fixed; top: 0; right: 0;z-index: 1; " data-delay='3750' role="alert"
+    aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="mr-auto">Error!</strong>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+    </div>
+  </div>
+<!-- end toast -->
+
+<!-- begin modal -->
+  <div class="modal fade" id="list-delete-modal" tabindex="-1" role="dialog" aria-labelledby="delete-list-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete List?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Once deleted, all list items will be deleted and there is no way to recover the list.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button id="confirm-delete"type="button" data-dismiss="modal" class="btn btn-danger">Delete List</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end modal -->
+
+  <!-- FOOTER -->
+  <footer class="page-footer font-small blue fixed-bottom">
+
+
+    <div class="footer-copyright text-center  py-3 bg-dark">
+
+<a  target="_blank" href="https://www.linkedin.com/in/joe-protz/"class=" ml-2 mr-2 fa fa-linkedin"></a>
+<a  target="_blank" href="https://github.com/joe-protz"class=" ml-2 mr-2  fa fa-github"></a>
+    </div>
+
+
+  </footer>
+
+  <!-- ~~=============================~~~=~~~~~~~~~~~~~~~~~~~~~~~~===~~~~~~~~~=~~==========================
+  ~~~~~======================~~~~~~~~~~~~~~~~~~~~~~~~~~~~+?+====~~~~~~~~~~~~~~~~~~~============~~~~~==
+  ~~~~~~~~~===============~~~~~~~~~~~~~~~~~~~~~~+I?7ODNNDNDDNDD+=~=~=~~====~~~~~~~~~===========~~~~~==
+  ~~~~~~~~~~~~~============~=~~~~~~~~~~~~==~=~+8DNNNNNNNNNNNNNNNND$==~=~~~~~~~~~~~~=~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~=======~~~~~~~~~~~?7?+ZNNNNNDDNNNNNNNNNNNDDNNNND77=~=~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+7ZNNMNNNNNNNNNNNNNNNNNNNDDODNN8DDZ=~~~~~~~~~~~~~~~~~~~~=~~~~~~=
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=NDMMMMMNNNMNNNNNNNN8NNDNNDDNNND8NND8Z~~~~~~~~~~~~~~~~~~~=~~~~~~=
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~==ZMMMMMNNNNNNNMMN8O8DDD8DNNDDNDDNNDDNNDD~~~~~~~~~~~~~~~~~~~~~~~=~=
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$DNNNMMMMMMMMND88O8OZ7ZOOZOOODNNNNNNNNNNDM=~~~~~~~~~~~~~~~~~~~~~~==
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=DNNDDNMMMMMNDDZ777IIIIIIIIII77$OODDNMMNNNNN==~~~~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~INNNNNNNNNNDZ$7777II???????IIII77$$ZODNMNNNNN==~~~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~INNNMNDD8OZ$77IIII?????????????II77$ZZ8NMNNNNO=~~~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~?DNNNND8OO777III?????????????????II77$$Z8DMNNNN$~~~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ODDNNND8D$777III??????????????????II77$ZO8NMMMNN7~~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+D8DDNNNO77IIIII??????????????????I?II77$Z8DMMNNN8===~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~D888DNDO$7IIIIII????+??++??????????III77$ZODNNNNDD~~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~=DDDDDDN8O$7IIIII????++?++++?+++??????III7$$ODNNNNND?=~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~88DDDDDOZ$77IIII????+?=+++++++++?+??IIII7$$Z8NDNNNDO=~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~?DDDDDN88$$77$Z$7II7??+=~=~=~~=++?+???II77$$$ODDNNNNN~=~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~IDNNNND8O$ZOOZOOOO88Z$I++=~=+?I7ZOZ$$$$Z$$$$$O8DDNNNN~=~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~+DNDNND8Z$O$77I777777$$I?++?I77$$ZZ$$$$O88Z$$OD8DDDD$~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DNNNNDO7Z$77$777I??I77$I++?777777I777III$8Z$Z8NNNND+~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~=DNNMDNZ7$77$DD8N8D$?+$ZI??I$$7I77$ZO$Z7I7OZZZ8MNNN8=~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~DNNNDD$77I7Z$ZZO$$$7I7ZI?I7$II$?IN8NZD$7I7Z$$8NNNNO?~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~:~+77IONDD87I7III77III?II$$$III7$$IIII?$$$$D7II$ZZDNNNNZI~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~=7III7ODDZ7I7IIIIIII7777$$7III7$$$?I??III77II7$$ZDNNNDZ?~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~7??I?IZDD77IIIIIIIIIIIII7$7I?I7$$7I7I????IIII7$ZZ8DND$$+~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~+?I7??$88$77IIIII?????I7$II??I7$77I?III77IIII7$$Z8NNOZ$7~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~II7+=IZ8$77III??++++?I$7II??I7$$7???????III777ZZ8DZ?$?I~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~?7+?I$8$$77II?++=++?$$77I==I777$+=++?????II77ZO88+?$+I~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~+7II7I$OZ$77III??????Z7$O$77$O$I$I++=++???II7$ZODZ=+7?+~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~=7Z7I7+7OO$$7IIII7??7$7$$77$Z77$$7?I?I+?+?III$ZO8D7??I+:~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~+7ZZ$777OOO$$7I$$$ZOOO8OOZ$77ZZZ$Z$7??I?IIII7$Z8DI$I7II=~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~IZZZZ$$8OOO$$$O888OOOOOOOOZ7ZZOOO8OZ7?III77$ZZ88$?$7ZZ+~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~=7ZZZZO8O8OO$OD8ZZZZOZZZ$7?II7$ZOOO8OOZI7$$Z88DO77$ZZZ?~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~:~+$ZZZZ888D8O88OIIOZ$=7?I+?+7I$$OZ$Z888$$Z8O88DZ7$ZZZZ+~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~:~?$ZZZOOO8888OZII77OI+~~~+~=~=++IO$788OOO88888ZOOOZZI~~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~?$ZZZ88D8DD8Z7II7I$Z$$$$$$ZZZZ$II7OO88DND8D8OOZZZ7=~~~~~~~~~~~~~~~~~~~~
+  :::~~~~~~~~~~~~~~~~~~~~~~~~~~~+7$Z88DD8D88O$IIIII?????II?IIIII7888DD8D8DOZOZZ$=~~~~~~~~~~~~~~~~~~~~~
+  :::~:~~~~~~~~~~~~~~~~~~~~~~~~:~=IZOD8ONDD8D8$III77Z$$7I7IIII?IZZ88DDDDD8ZZOZ7+~~~~~~~~~~~~~~~~~~~~:?
+  ~~:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=?$88DDNNNDDOZI7ZZZO$$$7?III$Z88DDDDDDDOZZZ7=~~~~~~~~~~~~~~~:~~~7DNN
+  ::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+$ZDNNDNDDDDO8OZOOD8ZZ$7I$$ZD8DDDDNND8ZZ$I=~~~:~~~~~~~~~~~~~IDDNNNN
+  ::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+$ZONDDDDNNDD87Z8ODO$OOZ8O8DDDNNNNDDOZ$?~:~~~~~~~~~::~:::+DDNNNNNNN
+  ::~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=7ZZONNNNNNDDO$8OO8O7$OO88DDNDNDNDNDZZ$+~~~~~::~~~::::~:DNNDNDNNNNN
+  :~~~~~~~~~~~~~~~~~~~~~~~~~~~~::~:~?$ZZ8NDDNNDDDO888ZOOZOODDDDNNNNND8=NDI=~::~~:::~~~:::?NNNNNNNNNNNN
+  :~~:~~~~~~~~~~~~~~~~~~~~~~~~~::~:~+7Z$Z8NNDNNND88DD88888DDDNNNNNN8ZI=?NN~~::~~:::~~~:~?NDNDNNNNNNNNN
+  ::::~~~~~~~~::~~~~~~~~~~~~~~~:~~:~~?+$$$ZDNNNNNDDDDD8DDNNNNDNNN8$$$=+?DNN~:::~::::~~:~MNDDNDNNNNNNNN
+  :::::::~~~::::~~~~~~~~~~~::~:::~~~~==$$7$$8NNNNNNNDNNNNNNNNDN8$777~=+?DNNN?=:~~:::::~8NNDDDNNNNNNNNN
+  :::::::~~:::::::::::::~:~:~~:~~~::$=?777777$7ZZDDNDNDNDNDN8ZIIII?~==?$NNNNN8::~:::::=NNDDDDNNNNNNNNN
+  :::::::::::::::::::~::~::~:~~::~~N?=7$777777II????7$7IIIIII???I==++++8NNNNNNN~~~~~:~ZNDDDDDNNNNNNNND
+  :::::::::::::::::::::~~+7ODDDD88DN+~IOI777777I???????????????~~===+=INNNNNNNNNO:::~:NNDDDDNNNNNNNNNN
+  :::::::::::~+7$OODDDDDDDDDDDD88DNNI~+O7I77777II?+???++?+??+~~~~~====DDNNNNNNNNNM:~:~NNDDDDNNNNNNNNN$
+  :::::IZDDDDD8DDDDDDDDDDDD8888DDNNM++=$$7I7I777I??????+?=::~~~~~====ODDNNNNNNNNNNNN$ZNDDDDDNNNNNNNNN?
+  :::8DDDDDDDDDDDDDDDDDDDDD888DDDNNZI?+~I7IIIIII???++?=~::::::~~~===+NNDNNNNNNNNNNNNDNDDDDDDNNNNNNNN7~
+  :IDDDDDDDDDDDDDDDDDDDDDD8D8DDNNNI77=~=~~IIII?????=~:~:::::::~~~~~=NNNNNNNNNNNNNNNNNDDDNNDDNNNDNNNN++
+  $DNDDDDDDDDDDDDDDDDDDDDDDDDDND8$7$++=~~~+~~+?+=~~~~:::::~~:~~~~~~IDNNNNNNNNNNNNNNNNNNNNDNDNNDDNND7++
+  DNDDDDDDDDDDDDDDDDDDD8DDDDDDD$7$$7==~~$+=~~~===~~:::::~:~~~~~~~~:NNDNNNNNNNNNNNNNNNDNDDNNNNDNNNNDN8I
+  DDDDDDDDDDDDDDDDDDDDDDDDDDNNZ7IIII+=OO878OZZO87:::::::::~~~:::::ODDNDDNNNNNNDNDNNNNDDDDDDDDDDNDNNNNN
+  NDDDDDDDDDDDDDDDDDDDDDDDDNNZ77$I+I=O8DDD8Z8Z7$$~:::::::~~~~:::~~NDDDDNNNNNNNDDDDDDDDDDDDDDDDNDDNNNNN
+  NDDDDDDDDD8DDDDDDDDDDDDDDNZII7I+??+88O8OZZ$7?$$8::::::::::::::~DNDDDDNDNDDDNDNNNNNNNDDDDDDDDDDDDDNNN
+  NNDDDDDDDDDDDDDDDDDDDDNDDO???+=~+?ZOOZOZ77?IZZ88+:::::::::::~~ZNNNDDNNDDDDDDNDDDDDDDDDDDDDDDDDDDDDNN
+  NDDDDDDDDDDDDDDDDDDNNDNDN++++=~~+?88DD$77$$Z$ZZ+=::::::::::~~=DNDDNNNDDDDDNNNNDNDDDNDDNDDDDDDDDNDNDD
+  NNDDDDDDNDNDDDDDDDNNNNDN+++===~=+$8Z$ZI7Z$Z8Z==~~~~:::::::~~=8DDNDDDNDNDNDNDDNNNNNDDDDDDDDDDDDDDDDDD
+  NNDDDDDNNNNNNDNNNNNNNNDD?+++=~~~+OD8$77$OZO+=~=~~~:::::::~~~~NDNDDDNNNDDDNDDNNNNNDDDDDDDDDDDDDDDDDDD -->
+</body>
+
+</html>
