@@ -18,11 +18,11 @@
   <div class="signed-in">
     <nav class="navbar sticky-top navbar-dark bg-dark justify-content-between">
       <ul class="nav nav-pills list-list">
-        
+
         <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle btn-primary" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My Lists</a>
           <div class="dropdown-menu scrollable-menu ">
-           
+
           </div>
         </li>
         </ul>
@@ -60,8 +60,8 @@
 
 
     <ul class="container mb-5 list-group items-list">
-      
-      
+
+
     </ul>
   </div>
   <!-- end signed in view -->
@@ -69,10 +69,15 @@
   <!-- begin signed out view -->
   <nav class="signed-out navbar navbar-dark bg-dark justify-content-between pb-0">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="sign-in-tab" data-toggle="tab" href="#sign-in-for-lists" role="tab"
-          aria-controls="sign in" aria-selected="true">Sign In</a>
+       <li class="nav-item">
+        <a class="nav-link active" id="about-tab" data-toggle="tab" href="#about" role="tab"
+          aria-controls="about" aria-selected="true">About</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" id="sign-in-tab" data-toggle="tab" href="#sign-in-for-lists" role="tab"
+          aria-controls="sign in" aria-selected="false">Sign In</a>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link" id="sign-up-tab" data-toggle="tab" href="#sign-up-for-lists" role="tab"
           aria-controls="sign up" aria-selected="false">Sign Up</a>
@@ -81,7 +86,16 @@
     <div class="container signed-out">
   </nav>
   <div class="tab-content m-3" id="myTabContent">
-    <div class="tab-pane fade show active" id="sign-in-for-lists" role="tabpanel"
+        <div class="tab-pane fade show active"id='about' role="tabpanel">
+          <div class='signed-out'>Welcome to my List App. With this app, you are able to create lists of items and quantities with ease. You may create a new list by clicking in the top left corner, and a new item for the list by using the form at the top middle of the page. To edit an item, you simply click on either the name or quantity, and when you press the enter button it will save. Please log in or sign up to begin, or click on the button below to use my test account.
+
+          <p><button class='btn btn-primary mt-2' id='dummy' >Click here to use test account</button>
+          </p>
+          </div>
+        </div>
+
+
+    <div class="tab-pane fade show" id="sign-in-for-lists" role="tabpanel"
       aria-labelledby="sign-in-for-lists-tab">
       <div class="col-md-6">
 
@@ -169,14 +183,14 @@
   <!-- FOOTER -->
   <footer class="page-footer font-small blue fixed-bottom">
 
-    
+
     <div class="footer-copyright text-center  py-3 bg-dark">
-      
+
 <a  target="_blank" href="https://www.linkedin.com/in/joe-protz/"class=" ml-2 mr-2 fa fa-linkedin"></a>
 <a  target="_blank" href="https://github.com/joe-protz"class=" ml-2 mr-2  fa fa-github"></a>
     </div>
-    
-  
+
+
   </footer>
 
   <!-- ~~=============================~~~=~~~~~~~~~~~~~~~~~~~~~~~~===~~~~~~~~~=~~==========================

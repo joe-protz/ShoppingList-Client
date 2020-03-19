@@ -36,6 +36,17 @@ const onChangePassword = function (event) {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
+
+const signUpWithDummy = function () {
+  api
+    .signIn({credentials: {
+      email: '1@1',
+      password: '1'}
+    })
+    .then(ui.signInSuccess)
+    .catch(ui.signInFail)
+}
+
 //  used by app.js to add handlers for auth events
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -44,6 +55,7 @@ const addHandlers = () => {
   $('#change-password-form').on('submit', onChangePassword)
   $('#open-pw-view').on('click', () => ui.changePasswordView(true))
   $('#cancel').on('click', () => ui.changePasswordView(false))
+  $('#dummy').on('click', signUpWithDummy)
 }
 
 module.exports = {

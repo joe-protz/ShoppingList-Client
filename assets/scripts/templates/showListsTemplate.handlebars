@@ -1,13 +1,15 @@
-
 <form id="create-list-form" class="px-4 py-3">
-    <div class="form-group">
-      <label for="new-list-name">New List Name</label>
-      <input name="list[name]"type="text" class="form-control" id="new-list-name" placeholder="enter name here">
-    </div>
+  <div class="form-group">
+    <label for="new-list-name">New List Name</label>
+    <input name="list[name]" type="text" class="form-control" id="new-list-name" placeholder="enter name here">
+  </div>
 
-    <button type="submit" class="btn btn-sm btn-primary">Create New</button>
-  </form>
-  <div class="dropdown-divider"></div>
+  <button type="submit" class="btn btn-sm btn-primary">Create New</button>
+</form>
+<div class="dropdown-divider"></div>
 {{#each lists as |list|}}
- <a class="dropdown-item list-name d-flex justify-content-between" data-id={{list.id}} href="#"><div class = 'mr-2'>#{{inc @index}} {{list.name}} </div>       <button  data-toggle="modal" data-target="#list-delete-modal"data-id={{list.id}} class= "btn btn-danger btn-sm delete-list">Delete</button></a>
+<a class="dropdown-item list-name d-flex justify-content-between" data-id={{list.id}} href="#">
+  <div class='mr-2'>#{{inc @index}} {{list.name}} </div> <button data-toggle="modal" data-target="#list-delete-modal"
+    data-id={{list.id}} class="btn btn-danger btn-sm delete-list">Delete</button>
+</a>
 {{/each}}
